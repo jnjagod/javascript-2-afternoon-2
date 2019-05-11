@@ -133,7 +133,8 @@ var divider = function(numbersArray){
   let newArr = [evenArr, oddArr]
   for (let i = 0; i < numbersArray.length; i++){
     numbersArray[i] % 2 === 0 ? evenArr.push(numbersArray[i]) : oddArr.push(numbersArray[i])
-  } return newArr
+  } 
+  return newArr
 }
 
 
@@ -155,9 +156,15 @@ var getRandomArbitrary = function() {
   Loop through the array to see if randomNumber is in the array. 
   If it is, return true, if it's not, return false
 */
-
-//Code Here
-
+function finder(arr){
+  let randomNumber = getRandomArbitrary()
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === randomNumber){
+      return true
+    }
+  }
+  return false
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -185,7 +192,23 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   addItem() --> [];
 */
 
-//Code Here
+function removeItem(myGroceryList, item){
+  let empty = []
+  if(!item || !myGroceryList){return empty}
+  for(let i = 0; i < myGroceryList.length; i++){
+    if(myGroceryList[i] === item){
+      myGroceryList.splice(i, 1)
+    }
+  } return myGroceryList
+}
+
+function addItem(myGroceryList, item){
+  let empty = []
+  if(!item || !myGroceryList){return empty}
+      if(myGroceryList.indexOf(item) == -1){
+      myGroceryList.push(item)
+  } return myGroceryList
+}
 
 
 
@@ -195,7 +218,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 */
 
-//Code Here
+function maker(){
+  let arr = []
+  for(let i = 0; i < 215; i++){
+    arr[i] = i + 1;
+  }
+  return arr
+}
 
 
 
@@ -210,8 +239,14 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   Return a new array after adding ten to each item in numbers. 
   Your output should look like this -> [15, 19, 26, 29, 35, 44, 58]
 */
-  
-//Code Here
+
+function addTen(numbers){
+  for(let i = 0; i < numbers.length; i++){
+      numbers[i] = Number(numbers[i])
+      numbers[i] += 10
+    }
+  return numbers
+}
 
 
 
@@ -236,7 +271,13 @@ for(var i = 0; i < num2; i++){
   Return the longer of the two arrays.
 */
 
-//Code Here
+function longer(arr1, arr2){
+  if( arr1.length > arr2.length){
+    return arr1
+  } else {
+    return arr2
+  }
+}
 
 
 
@@ -248,7 +289,17 @@ for(var i = 0; i < num2; i++){
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
-//Code Here
+function both(arr1, arr2){
+  let newArr = []
+  for(i = 0; i < arr1.length; i++){
+    for(j = 0; j < arr2.length; j++){
+      if(arr1[i] === arr2[j]){
+        newArr.push(arr1[i])
+      }
+    }
+  } 
+  return newArr
+}
 
 
 
@@ -288,18 +339,23 @@ var colt = {
   After that console.log the length of the Array and make sure that it's equal to 4. 
 */
 
-//Code Here
-
-
+devMountainEmployees.push(joe, cahlan, ryan, colt)
+console.log(devMountainEmployees.length)
 
 /*
   Now let's say Cahlan has to take a leave of absence.
   Loop through your devMountainEmployees until you find cahlan, then remove him from the array.
 */
 
-//Code Here
-
-
+function delet(arr, prop){
+  for(i = 0; i < arr.length; i++){
+    if(arr[i].name === prop){
+      arr.splice(i, 1)
+    }
+  } return arr
+}
+delet(devMountainEmployees, 'Cahlan')
+console.log(devMountainEmployees.length)
 
 ////////// PROBLEM 13 //////////
 
@@ -309,9 +365,7 @@ var colt = {
   Create an empty array called users.
 */
 
-//Code Here
-
-
+var users = []
 
 /*
   Now add three user objects to your users array. Each user object should contain the following properties. name, email, password, username.
@@ -328,9 +382,21 @@ var user1 = {
 };
 // Do not edit the code above.
 
-//Code Here
+var user2 = {
+  name: 'Bob Ross',
+  email: 'bob.rossr@devmounta.in',
+  password: 'painter1',
+  username: 'ihazpaint'
+};
 
+var user3 = {
+  name: 'Tony Hawk',
+  email: 'tony.hawk@devmounta.in',
+  password: 'skaterboi1',
+  username: 'ihazboard'
+};
 
+users.push(user1, user2, user3)
 
 /*
   Now you have a very common data structure. 
@@ -342,7 +408,14 @@ var user1 = {
   Once you find the array index he's located in, delete him from the array.
 */
 
-//Code Here
+function deleted(arr, prop){
+  for(i = 0; i < arr.length; i++){
+    if(arr[i].email === prop){
+      arr.splice(i, 1)
+    }
+  } return arr
+}
+deleted(users, 'mark.mciver@devmounta.in')
 
 
 
